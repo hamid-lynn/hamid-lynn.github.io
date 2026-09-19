@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色图-高清唯美壁纸与插画图库</title>
+    <meta name="description" content="色图网提供海量高清唯美壁纸、插画与摄影作品，每日更新，分类明确，支持高清大图下载与在线预览。">
+    <meta name="keywords" content="色图,壁纸,插画,高清图片,摄影,艺术图">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #f1f1f1;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 30px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .category-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .category-list h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-list ul {
+            list-style: none;
+        }
+
+        .category-list li {
+            margin-bottom: 8px;
+        }
+
+        .category-list a {
+            display: block;
+            padding: 5px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .category-list a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        /* Gallery Grid */
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .gallery-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .view-options button {
+            background: var(--card-bg);
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-left: 5px;
+        }
+
+        .view-options button.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .image-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .image-wrapper {
+            position: relative;
+            padding-top: 133%; /* 3:4 Aspect Ratio */
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover .image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            background: #f0f2f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                order: -1; /* Move categories to top on mobile if desired, or remove */
+            }
+
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+
+            nav ul {
+                margin: 10px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">
+            <span>色图</span>图库
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">最新收录</a></li>
+                <li><a href="#">热门排行</a></li>
+                <li><a href="#">高清下载</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索图片关键词...">
+            <span>🔍</span>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>发现高清视觉之美</h1>
+    <p>汇集全网精选插画、摄影与艺术壁纸，每日更新，提供4K超清画质与沉浸式浏览体验。</p>
+</section>
+
+<main class="main-container">
+    <aside>
+        <div class="category-list">
+            <h3>热门分类</h3>
+            <ul>
+                <li><a href="#">唯美插画</a></li>
+                <li><a href="#">二次元动漫</a></li>
+                <li><a href="#">风景摄影</a></li>
+                <li><a href="#">人物肖像</a></li>
+                <li><a href="#">极简主义</a></li>
+                <li><a href="#">赛博朋克</a></li>
+                <li><a href="#">复古风格</a></li>
+                <li><a href="#">自然风光</a></li>
+            </ul>
+        </div>
+        
+        <div class="category-list" style="margin-top: 20px;">
+            <h3>筛选标签</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                <span class="tag">#4K</span>
+                <span class="tag">#壁纸</span>
+                <span class="tag">#手机屏保</span>
+                <span class="tag">#电脑桌面</span>
+                <span class="tag">#原创</span>
+            </div>
+        </div>
+    </aside>
+
+    <section class="content-area">
+        <div class="gallery-header">
+            <h2>每日精选</h2>
+            <div class="view-options">
+                <button class="active">网格</button>
+                <button>列表</button>
+            </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+            <!-- Images will be populated by JS or static for initial load -->
+            
+            <article class="image-card">
+                <div class="image-wrapper">
+                    <img src="https://picsum.photos/seed/art1/400/533" alt="唯美风景插画">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">晨曦微光：森林深处</h3>
+                    <div class="card-meta">
+                        <span>插画师: Alex</span>
+                        <span class="tag">风景</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="image-card">
+                <div class="image-wrapper">
+                    <img src="https://picsum.photos/seed/art2/400/533" alt="城市夜景">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">霓虹都市：雨夜漫步</h3>
+                    <div class="card-meta">
+                        <span>摄影师: Lisa</span>
+                        <span class="tag">摄影</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="image-card">
+                <div class="image-wrapper">
+                    <img src="https://picsum.photos/seed/art3/400/533" alt="动漫角色">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">魔法少女：初绽</h3>
+                    <div class="card-meta">
+                        <span>画师: Mika</span>
+                        <span class="tag">二次元</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="image-card">
+                <div class="image-wrapper">
+                    <img src="https://picsum.photos/seed/art4/400/533" alt="抽象艺术">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">几何梦境</h3>
+                    <div class="card-meta">
+                        <span>艺术家: Neo</span>
+                        <span class="tag">抽象</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="image-card">
+                <div class="image-wrapper">
+                    <img src="https://picsum.photos/seed/art5/400/533" alt="花卉特写">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">玫瑰的低语</h3>
+                    <div class="card-meta">
+                        <span>画师: Rose</span>
+                        <span class="tag">花卉</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="image-card">
+                <div class="image-wrapper">
+                    <img src="https://picsum.photos/seed/art6/400/533" alt="极简家居">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">静谧空间</h3>
+                    <div class="card-meta">
+                        <span>设计: Studio A</span>
+                        <span class="tag">极简</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>加载更多精彩内容...</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于色图</h4>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.8;">
+                色图致力于为用户提供高质量、无版权争议的视觉素材分享平台。我们尊重创作者版权，所有图片仅供个人欣赏与学习使用。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>快速链接</h4>
+            <ul>
+                <li><a href="#">版权声明</a></li>
+                <li><a href="#">投稿指南</a></li>
+                <li><a href="#">联系合作</a></li>
+                <li><a href="#">隐私政策</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>热门标签</h4>
+            <ul>
+                <li><a href="#">高清壁纸</a></li>
+                <li><a href="#">二次元</a></li>
+                <li><a href="#">摄影作品</a></li>
+                <li><a href="#">艺术插画</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 色图图库 版权所有. 仅供交流学习使用.
+    </div>
+</footer>
+
+<script>
+    // Simple script to simulate infinite scroll or interaction
+    document.addEventListener('DOMContentLoaded', function() {
+        const gallery = document.getElementById('gallery');
+        const loadingText = document.querySelector('.loading p');
+        
+        // Add click listeners to view options
+        const viewBtns = document.querySelectorAll('.view-options button');
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                viewBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // In a real app, this would toggle grid/list classes
+                gallery.style.gridTemplateColumns = btn.classList.contains('active') 
+                    ? 'repeat(auto-fill, minmax(220px, 1fr))' 
+                    : '1fr';
+            });
+        });
+
+        // Simulate loading more content
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                loadingText.textContent = "正在获取最新资源...";
+                setTimeout(() => {
+                    loadingText.textContent = "加载更多精彩内容...";
+                    // In a real scenario, fetch more images here
+                }, 1500);
+            }
+        }, { threshold: 0.1 });
+
+        observer.observe(loadingText);
+    });
+</script>
+
+</body>
+</html>
