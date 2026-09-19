@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="缘分的天空是一个专注于情感故事、心灵感悟与生活随笔的在线阅读平台，提供温暖治愈的文字，记录生命中那些不期而遇的美好瞬间。">
+    <meta name="keywords" content="缘分的天空,情感文章,心灵感悟,生活随笔,治愈系,情感故事">
+    <title>缘分的天空-温暖治愈的情感故事与心灵感悟平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6a8caf;
+            --secondary-color: #e8f0fe;
+            --accent-color: #ff8a80;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f9f9;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, rgba(106, 140, 175, 0.9), rgba(232, 240, 254, 0.8)), url('https://picsum.photos/seed/sky/1920/1080.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 36px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 138, 128, 0.4);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 138, 128, 0.6);
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            margin-top: -40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cat-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-title {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* 内容区域 */
+        main {
+            padding-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 28px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* 文章卡片 */
+        .article-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        /* 特色展示 */
+        .feature-section {
+            background-color: white;
+            padding: 60px 0;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .feature-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .feature-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .feature-text p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .check-icon {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .feature-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 评论区/互动 */
+        .interaction-section {
+            background-color: var(--secondary-color);
+            padding: 60px 0;
+            border-radius: 20px;
+            margin-bottom: 60px;
+        }
+
+        .interaction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .quote-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .quote-card::before {
+            content: '“';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(106, 140, 175, 0.2);
+            font-family: serif;
+        }
+
+        .quote-text {
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                缘分的天空<span>.</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">情感故事</a></li>
+                    <li><a href="#">心灵感悟</a></li>
+                    <li><a href="#">生活随笔</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>在喧嚣中寻找宁静</h1>
+            <p>缘分的天空，记录生命中那些不期而遇的美好瞬间，分享触动心灵的文字与故事。</p>
+            <a href="#featured" class="hero-btn">开始阅读</a>
+        </div>
+    </section>
+
+    <div class="container category-nav">
+        <div class="category-grid">
+            <div class="cat-card">
+                <span class="cat-icon">🌸</span>
+                <div class="cat-title">爱情故事</div>
+            </div>
+            <div class="cat-card">
+                <span class="cat-icon">🤝</span>
+                <div class="cat-title">友情岁月</div>
+            </div>
+            <div class="cat-card">
+                <span class="cat-icon">🌱</span>
+                <div class="cat-title">亲情羁绊</div>
+            </div>
+            <div class="cat-card">
+                <span class="cat-icon">🧘</span>
+                <div class="cat-title">自我成长</div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section id="featured">
+            <h2 class="section-title">精选推荐</h2>
+            <div class="grid-layout">
+                <!-- 文章 1 -->
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/love1/400/300" alt="城市里的那盏灯" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">爱情故事</span>
+                        <h3 class="card-title"><a href="#">城市里的那盏灯，照亮了谁的归途</a></h3>
+                        <p class="card-excerpt">在这个快节奏的城市里，每个人都是孤独的旅人。有时候，缘分就是一盏在深夜为你亮起的灯，不问归期，只暖人心。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/user1/50/50" alt="作者头像" class="author-avatar">
+                                <span>林浅浅</span>
+                            </div>
+                            <span>2小时前</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 文章 2 -->
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/nature2/400/300" alt="秋日的私语" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">心灵感悟</span>
+                        <h3 class="card-title"><a href="#">秋日的私语：学会与遗憾和解</a></h3>
+                        <p class="card-excerpt">秋天是收获的季节，也是告别的季节。我们总在失去中学会成长，在遗憾中懂得珍惜。缘分的天空，允许一切发生。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/user2/50/50" alt="作者头像" class="author-avatar">
+                                <span>云深不知处</span>
+                            </div>
+                            <span>5小时前</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 文章 3 -->
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/travel3/400/300" alt="旅途中的风景" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">生活随笔</span>
+                        <h3 class="card-title"><a href="#">旅途中的风景，不如身边的你</a></h3>
+                        <p class="card-excerpt">我们总向往远方的山川湖海，却往往忽略了身边的微小确幸。缘分让我们相遇，更要学会珍惜每一次相聚的时光。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/user3/50/50" alt="作者头像" class="author-avatar">
+                                <span>行者无疆</span>
+                            </div>
+                            <span>昨天</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <div class="container feature-layout">
+                <div class="feature-text">
+                    <h2>关于“缘分的天空”</h2>
+                    <p>缘分的天空是一个致力于分享温暖、治愈与真实情感的文字平台。我们相信，每一个生命中的瞬间都值得被记录，每一段不期而遇的缘分都值得被歌颂。</p>
+                    <ul class="feature-list">
+                        <li><span class="check-icon">✓</span> 真实感人的原创故事</li>
+                        <li><span class="check-icon">✓</span> 深入人心的情感分析</li>
+                        <li><span class="check-icon">✓</span> 温暖治愈的散文随笔</li>
+                        <li><span class="check-icon">✓</span> 鼓励读者表达与分享</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="https://picsum.photos/seed/sky2/600/400" alt="缘分的天空概念图">
+                </div>
+            </div>
+        </section>
+
+        <section class="interaction-section">
+            <div class="container">
+                <h2 class="section-title">读者心声</h2>
+                <div class="interaction-grid">
+                    <div class="quote-card">
+                        <p class="quote-text">“在这里看到了很多关于自己的影子，原来我不孤单。谢谢这个平台，让我找到了归属感。”</p>
+                        <div class="quote-author">—— 读者 小雅</div>
+                    </div>
+                    <div class="quote-card">
+                        <p class="quote-text">“每一篇文章都像是一杯温热的茶，在疲惫的时候给我力量。缘分的天空，是我心灵的栖息地。”</p>
+                        <div class="quote-author">—— 读者 星辰</div>
+                    </div>
+                    <div class="quote-card">
+                        <p class="quote-text">“不仅读到了故事，更学到了如何去爱，如何去珍惜身边的人。非常感谢编辑们的用心。”</p>
+                        <div class="quote-author">—— 读者 晨曦</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">热门标签</h2>
+            <div class="grid-layout" style="grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));">
+                <a href="#" class="cat-card"># 遇见</a>
+                <a href="#" class="cat-card"># 珍惜</a>
+                <a href="#" class="cat-card"># 告别</a>
+                <a href="#" class="cat-card"># 陪伴</a>
+                <a href="#" class="cat-card"># 治愈</a>
+                <a href="#" class="cat-card"># 成长</a>
+                <a href="#" class="cat-card"># 相遇</a>
+                <a href="#" class="cat-card"># 珍藏</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>缘分的天空</h3>
+                    <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.6;">
+                        在这里，文字是桥梁，连接着每一个孤独的灵魂。记录生活，感悟缘分，温暖彼此。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速导航</h3>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>热门栏目</h3>
+                    <ul>
+                        <li><a href="#">情感故事</a></li>
+                        <li><a href="#">心灵感悟</a></li>
+                        <li><a href="#">生活随笔</a></li>
+                        <li><a href="#">书评影评</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">豆瓣小组</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 缘分的的天空 版权所有 | 缘分的天空 - 温暖治愈的情感故事与心灵感悟平台</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
