@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="夕颜能登麻美子（能登麻美子）官方粉丝综合门户，收录影视作品、动画角色、声优资讯、演唱会信息及粉丝社区互动指南。">
+    <meta name="keywords" content="夕颜能登麻美子, 能登麻美子, 能登のり子, 声优, 动画, 影视, 演唱会">
+    <title>能登麻美子-声优资讯、影视作品与演唱会指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5D4157;
+            --secondary-color: #A8B5D4;
+            --accent-color: #F2E4D8;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F9F9F7;
+            --bg-card: #FFFFFF;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: normal;
+            border: 1px solid #ddd;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 4rem;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/noriko_hero/800/600.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent 0%, rgba(249,249,247,0.8) 100%);
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Content Columns */
+        .content-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .news-date {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+            height: fit-content;
+        }
+
+        .news-date .day {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .news-date .month {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .news-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .profile-widget {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--accent-color);
+        }
+
+        .profile-bio {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .profile-tags span {
+            display: inline-block;
+            background: #f0f0f0;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin: 0 2px 4px 0;
+            color: var(--text-main);
+        }
+
+        .rank-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            font-weight: bold;
+            color: var(--primary-color);
+            width: 25px;
+        }
+
+        .rank-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 180px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: #fff;
+            padding: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: rgba(255,255,255,0.8);
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                height: auto;
+                padding: 3rem 0;
+            }
+            .hero-content {
+                padding-right: 0;
+                text-align: center;
+                margin-top: 2rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">Noriko Official</a>
+        <nav class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">影视作品</a>
+            <a href="#">动画角色</a>
+            <a href="#">演唱会</a>
+            <a href="#">粉丝社区</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="display: flex; width: 100%; align-items: center; height: 100%;">
+            <div class="hero-content">
+                <span class="hero-tag">声优 / 演员</span>
+                <h1>能登麻美子</h1>
+                <p>日本著名声优、演员。代表作包括《辉夜大小姐》、《偶像活动》花坂结衣、《DARLING in the FRANXX》星野莱卡等。致力于用声音与演技传递温暖与力量。</p>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-grid">
+            <!-- Left Content: News & Updates -->
+            <div class="content-col">
+                <div class="section-title">
+                    最新动态
+                    <a href="#">查看更多 &rarr;</a>
+                </div>
+                
+                <div class="news-list">
+                    <article class="news-card">
+                        <div class="news-date">
+                            <span class="day">15</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-info">
+                            <h3>新番《辉夜大小姐想让我告白》确认制作第四季</h3>
+                            <p>官方宣布《辉夜大小姐想让我告白～天才们的恋爱头脑战～》将制作第四季，能登麻美子将再次为石上优一角献声。</p>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-date">
+                            <span class="day">02</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="news-info">
+                            <h3>个人演唱会“Noriko Tour 2024”日程决定</h3>
+                            <p>为了感谢粉丝多年的支持，将于2024年冬季开启全国巡回演唱会，详情将在官方网站陆续公布。</p>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-date">
+                            <span class="day">28</span>
+                            <span class="month">09月</span>
+                        </div>
+                        <div class="news-info">
+                            <h3>参与配音的剧场版动画《赛博朋克：边缘行者》热映中</h3>
+                            <p>在备受瞩目的《赛博朋克：边缘行者》中，能登麻美子饰演了重要角色“露西”，其演绎深受观众喜爱。</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-title">
+                    热门作品
+                    <a href="#">查看更多 &rarr;</a>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/noriko1/300/400.jpg" alt="辉夜大小姐">
+                        <div class="gallery-overlay">
+                            <h4>辉夜大小姐想让我告白</h4>
+                            <p>声优：石上优</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/noriko2/300/400.jpg" alt="偶像活动">
+                        <div class="gallery-overlay">
+                            <h4>偶像活动！</h4>
+                            <p>声优：花坂结衣</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/noriko3/300/400.jpg" alt="DARLING in the FRANXX">
+                        <div class="gallery-overlay">
+                            <h4>DARLING in the FRANXX</h4>
+                            <p>声优：星野莱卡</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/noriko4/300/400.jpg" alt="冰菓">
+                        <div class="gallery-overlay">
+                            <h4>冰菓</h4>
+                            <p>声优：折木奉太郎</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar: Profile & Info -->
+            <aside class="sidebar">
+                <div class="widget profile-widget">
+                    <img src="https://picsum.photos/seed/noriko_avatar/200/200.jpg" alt="能登麻美子" class="profile-img">
+                    <h3 class="widget-title" style="border:none; text-align:center;">能登麻美子</h3>
+                    <p class="profile-bio">1987年12月5日出生于日本东京都。日本女性声优、演员。所属事务所为Amuse。</p>
+                    <div class="profile-tags">
+                        <span>石上优</span>
+                        <span>花坂结衣</span>
+                        <span>露西</span>
+                        <span>折木奉太郎</span>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h4 class="widget-title">近期活动</h4>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <span class="rank-title">个人写真集发售</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <span class="rank-title">综艺节目录制</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <span class="rank-title">粉丝握手会</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <span class="rank-title">广播节目播出</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h4 class="widget-title">关注我们</h4>
+                    <p style="font-size:0.9rem; color:#666; margin-bottom:1rem;">获取最新声优资讯与活动信息。</p>
+                    <a href="#" style="display:block; background:var(--primary-color); color:#fff; text-align:center; padding:0.8rem; border-radius:6px; font-weight:bold;">关注官方微博</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Featured Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                影视与舞台剧
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/movie1/400/300.jpg" alt="电影剧照">
+                    <div class="gallery-overlay">
+                        <h4>电影《辉夜大小姐》</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/movie2/400/300.jpg" alt="舞台剧剧照">
+                    <div class="gallery-overlay">
+                        <h4>舞台剧《魔法使的新娘》</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/movie3/400/300.jpg" alt="电视剧剧照">
+                    <div class="gallery-overlay">
+                        <h4>电视剧《恋爱喜剧是失败品》</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于能登麻美子</h4>
+                <p style="font-size:0.9rem; line-height:1.6;">本站为非官方网站，致力于整理能登麻美子的影视资料、声优作品及活动信息，仅供粉丝交流参考。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">声优作品列表</a></li>
+                    <li><a href="#">活动日程</a></li>
+                    <li><a href="#">媒体报道</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源支持</h4>
+                <ul>
+                    <li><a href="#">官方事务所主页</a></li>
+                    <li><a href="#">官方网站</a></li>
+                    <li><a href="#">粉丝俱乐部</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Noriko Fan Site. All rights reserved. 非官方粉丝站，内容仅供学习交流。
+        </div>
+    </div>
+</footer>
+
+</body>
+                          </html>
