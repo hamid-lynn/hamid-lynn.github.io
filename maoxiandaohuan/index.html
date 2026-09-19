@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒险岛幻影加点-幻影法师职业详解、技能搭配与版本攻略</title>
+    <meta name="description" content="本站提供冒险岛幻影法师最新加点方案、技能连招技巧、装备推荐及属性分配指南。深入解析幻影被动技能与主动技能的性价比，助你打造最强幻影。">
+    <meta name="keywords" content="冒险岛幻影加点,冒险岛幻影法师,冒险岛技能加点,冒险岛幻影攻略,冒险岛幻影装备">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --highlight-color: #3498db;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+            background-color: rgba(230, 126, 34, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+        }
+
+        .hero-btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 5px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Skill Grid */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 4px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-card.legendary {
+            border-top-color: #f1c40f;
+        }
+
+        .skill-card.epic {
+            border-top-color: #9b59b6;
+        }
+
+        .skill-card.common {
+            border-top-color: #bdc3c7;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .skill-lv {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .skill-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .skill-points {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .points-control button {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .points-control button:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Build Guide Section */
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .guide-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .guide-sidebar {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .build-option {
+            margin-bottom: 25px;
+        }
+
+        .build-option h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .build-list li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .build-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .sidebar-box h4 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .sidebar-box ul li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            background-color: white;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-secondary);
+            background-color: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px 20px 20px;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-content p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">冒险岛<span>幻影攻略</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">加点方案</a></li>
+                <li><a href="#">技能解析</a></li>
+                <li><a href="#">装备推荐</a></li>
+                <li><a href="#">连招视频</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>打造最强幻影法师</h1>
+        <p>从入门到精通，为您提供最全面、最实用的冒险岛幻影加点指南与版本最优解。</p>
+        <a href="#build-guide" class="hero-btn">查看推荐加点</a>
+    </div>
+</section>
+
+<main class="container">
+    <section id="skills">
+        <h2 class="section-title">核心技能加点</h2>
+        <p style="margin-bottom: 20px; color: var(--text-secondary);">幻影的核心在于技能复制与被动叠加。请根据您的游戏风格（爆发流或续航流）合理分配技能点。</p>
+        
+        <div class="skill-grid">
+            <!-- Passive -->
+            <div class="skill-card legendary">
+                <div class="skill-header">
+                    <span class="skill-name">幻影精通 (被动)</span>
+                    <span class="skill-lv">最高 30</span>
+                </div>
+                <div class="skill-desc">核心被动，增加物理攻击力和暴击率。幻影的基石，必须点满。</div>
+                <div class="skill-points">
+                    <span>当前加点: <strong>30</strong></span>
+                    <div class="points-control">
+                        <button onclick="updatePoints(this, -1)">-</button>
+                        <button onclick="updatePoints(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Skill 1 -->
+            <div class="skill-card epic">
+                <div class="skill-header">
+                    <span class="skill-name">二段跳</span>
+                    <span class="skill-lv">最高 1</span>
+                </div>
+                <div class="skill-desc">增加机动性，无法取消后摇。必学技能。</div>
+                <div class="skill-points">
+                    <span>当前加点: <strong>1</strong></span>
+                    <div class="points-control">
+                        <button onclick="updatePoints(this, -1)">-</button>
+                        <button onclick="updatePoints(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Skill 2 -->
+            <div class="skill-card epic">
+                <div class="skill-header">
+                    <span class="skill-name">暗影分身</span>
+                    <span class="skill-lv">最高 30</span>
+                </div>
+                <div class="skill-desc">主要输出技能，攻击力随等级提升。建议点满。</div>
+                <div class="skill-points">
+                    <span>当前加点: <strong>30</strong></span>
+                    <div class="points-control">
+                        <button onclick="updatePoints(this, -1)">-</button>
+                        <button onclick="updatePoints(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Utility 1 -->
+            <div class="skill-card common">
+                <div class="skill-header">
+                    <span class="skill-name">暗影双击</span>
+                    <span class="skill-lv">最高 30</span>
+                </div>
+                <div class="skill-desc">增加攻击速度和暴击伤害，辅助技能。</div>
+                <div class="skill-points">
+                    <span>当前加点: <strong>25</strong></span>
+                    <div class="points-control">
+                        <button onclick="updatePoints(this, -1)">-</button>
+                        <button onclick="updatePoints(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Utility 2 -->
+            <div class="skill-card common">
+                <div class="skill-header">
+                    <span class="skill-name">暗影分身·连击</span>
+                    <span class="skill-lv">最高 30</span>
+                </div>
+                <div class="skill-desc">增加分身攻击力，与暗影分身配合使用。</div>
+                <div class="skill-points">
+                    <span>当前加点: <strong>30</strong></span>
+                    <div class="points-control">
+                        <button onclick="updatePoints(this, -1)">-</button>
+                        <button onclick="updatePoints(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ultimate -->
+            <div class="skill-card legendary">
+                <div class="skill-header">
+                    <span class="skill-name">幻影分身术</span>
+                    <span class="skill-lv">最高 30</span>
+                </div>
+                <div class="skill-desc">终极技能，瞬间复制所有主动技能，造成巨额伤害。</div>
+                <div class="skill-points">
+                    <span>当前加点: <strong>30</strong></span>
+                    <div class="points-control">
+                        <button onclick="updatePoints(this, -1)">-</button>
+                        <button onclick="updatePoints(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="build-guide" class="guide-layout">
+        <div class="guide-content">
+            <h2 class="section-title">主流加点方案</h2>
+            
+            <div class="build-option">
+                <h3>方案一：爆发输出流</h3>
+                <p style="margin-bottom: 10px; color: var(--text-secondary);">适合追求高爆发秒怪，在BOSS战中快速清场。</p>
+                <ul class="build-list">
+                    <li><strong>暗影分身</strong>：30/30 (核心输出)</li>
+                    <li><strong>暗影双击</strong>：30/30 (最大化暴击与攻速)</li>
+                    <li><strong>暗影分身·连击</strong>：30/30 (强化分身伤害)</li>
+                    <li><strong>幻影精通</strong>：30/30 (面板基础)</li>
+                    <li><strong>二段跳</strong>：1/1 (必须)</li>
+                    <li><strong>幻影分身术</strong>：30/30 (终极爆发)</li>
+                </ul>
+            </div>
+
+            <div class="build-option">
+                <h3>方案二：续航控制流</h3>
+                <p style="margin-bottom: 10px; color: var(--text-secondary);">保留部分控制技能，适合长时间刷怪或特定活动。</p>
+                <ul class="build-list">
+                    <li><strong>暗影分身</strong>：25/30 (保留5点灵活分配)</li>
+                    <li><strong>暗影双击</strong>：25/30 (平衡攻速)</li>
+                    <li><strong>暗影分身·连击</strong>：25/30</li>
+                    <li><strong>幻影精通</strong>：30/30</li>
+                    <li><strong>暗影分身术</strong>：25/30</li>
+                    <li><strong>暗影双击</strong>：点出10级增加暴击率</li>
+                </ul>
+            </div>
+        </div>
+
+        <aside class="guide-sidebar">
+            <div class="sidebar-box">
+                <h4>加点小贴士</h4>
+                <ul>
+                    <li>幻影的技能点非常宝贵，前期尽量保证核心被动点满。</li>
+                    <li>“暗影双击”是提升攻击速度的关键，建议优先级高。</li>
+                    <li>BOSS战时，利用“幻影分身术”瞬间复制高伤害技能。</li>
+                    <li>注意技能冷却时间，合理利用“二段跳”躲避伤害。</li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-box" style="margin-top: 20px;">
+                <h4>属性分配建议</h4>
+                <ul>
+                    <li><strong>力量/智力</strong>：根据武器属性选择。</li>
+                    <li><strong>敏捷</strong>：影响攻击速度，幻影非常依赖敏捷。</li>
+                    <li><strong>运气</strong>：增加暴击伤害和最大HP。</li>
+                    <li><strong>精神</strong>：增加最大MP和MP恢复。</li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+
+    <section class="faq-section">
+        <h2 class="section-title">常见问题 (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">幻影前期技能点不够怎么办？</div>
+            <div class="faq-answer">
+                前期优先保证“幻影精通”点满，其次是“二段跳”和“暗影双击”。其他技能可以点1级过渡，随着等级提升再补满。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">暗影分身和暗影双击哪个更重要？</div>
+            <div class="faq-answer">
+                两者缺一不可。暗影分身是主要伤害来源，暗影双击提供攻速和暴击加成。建议两者同步升级，以达到最佳输出循环。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">如何最大化幻影分身术的伤害？</div>
+            <div class="faq-answer">
+                需要确保“幻影精通”、“暗影分身”和“暗影分身·连击”都点满。此外，装备上选择增加攻击力和暴击率的属性会显著提升分身术的爆发力。
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <p>© 2023 冒险岛幻影攻略网 - 专注提供最准确的冒险岛幻影加点与游戏资讯</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">本站内容仅供学习交流使用，冒险岛版权归 Nexon 所有。</p>
+    </div>
+</footer>
+
+<script>
+    // Simple interactive logic for skill points
+    function updatePoints(btn, change) {
+        const card = btn.closest('.skill-card');
+        const currentSpan = card.querySelector('.points-control span');
+        let current = parseInt(currentSpan.textContent);
+        const max = parseInt(card.querySelector('.skill-lv').textContent);
+        
+        const newValue = current + change;
+        
+        if (newValue >= 0 && newValue <= max) {
+            currentSpan.textContent = newValue;
+        }
+    }
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
